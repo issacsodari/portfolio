@@ -170,6 +170,25 @@
     if (dom.globalSearchBtn) {
       dom.globalSearchBtn.addEventListener('click', openSearchModal);
     }
+
+    // Prominent Header Search Bar under Name
+    const headerSearchInput = document.getElementById('headerSearchInput');
+    if (headerSearchInput) {
+      headerSearchInput.addEventListener('click', () => {
+        openSearchModal();
+      });
+      headerSearchInput.addEventListener('focus', () => {
+        openSearchModal();
+      });
+      headerSearchInput.addEventListener('input', (e) => {
+        openSearchModal();
+        if (dom.searchInput) {
+          dom.searchInput.value = e.target.value;
+          dom.searchInput.focus();
+        }
+        executeGlobalSearch(e.target.value.trim());
+      });
+    }
     // Keyboard shortcut Ctrl+K
     window.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {

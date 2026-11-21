@@ -71,79 +71,156 @@
   <!-- ========================================================================
        MAIN NAVIGATION HEADER
        ======================================================================== -->
-  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-      
-      <!-- Logo / Brand -->
-      <a href="#home" data-tab="home" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-0.5 shadow-lg group-hover:scale-105 transition">
-          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-cyan-400">
-            <i data-lucide="cloud" class="w-5 h-5"></i>
+  <!-- ========================================================================
+       SPLIT-COLUMN COMMAND HEADER (BIG NAME + SEARCH BAR + 3 COLUMN OPTIONS)
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/90 shadow-2xl no-print transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+
+      <!-- Top Row: Big Name Column (Left) + Top Actions (Right) -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- Big Name & Subtitle Column -->
+        <div class="space-y-1">
+          <div class="flex flex-wrap items-center gap-3">
+            <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-white flex items-center gap-2">
+              <span class="bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">ISSAC SODARI</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-md shadow-cyan-400/50"></span>
+            </h1>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/10 text-cyan-300 border border-blue-500/30">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>AZ-104 Certified</span>
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Immediate Joiner (0 Days Notice)</span>
+            </span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-300 font-medium">
+            Azure Cloud Administrator <span class="text-slate-500">•</span> Cloud Operations <span class="text-slate-500">•</span> Microsoft 365 & Entra ID (IAM)
+            <span class="text-cyan-400 font-semibold block sm:inline sm:ml-2">| Ex-TCS (Client: Microsoft • 4.8 Yrs Exp)</span>
+          </p>
+
+          <!-- PROMINENT SEARCH BAR UNDER THE NAME COLUMN -->
+          <div class="pt-2 relative max-w-xl">
+            <div class="relative flex items-center">
+              <i data-lucide="search" class="w-4 h-4 text-cyan-400 absolute left-3.5 pointer-events-none"></i>
+              <input type="text" id="headerSearchInput" placeholder="Search 85 skills, troubleshooting runbooks, labs, commands... (Ctrl+K)"
+                class="w-full py-2.5 pl-10 pr-20 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-blue-500/60 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 text-xs sm:text-sm text-white placeholder-slate-400 transition shadow-inner">
+              <div class="absolute right-3 flex items-center gap-1">
+                <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-slate-800 text-slate-400 rounded border border-slate-700">Ctrl K</kbd>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="font-extrabold text-base tracking-tight text-white flex items-center gap-1.5">
-            <span>ISSAC SODARI</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-          </div>
-          <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold font-mono">Azure Cloud Administrator</p>
+
+        <!-- Utility Bar: Theme, Quick Links, Actions -->
+        <div class="flex items-center gap-2 self-start lg:self-center">
+          <a href="https://linkedin.com/in/issacsodari" target="_blank" rel="noopener" class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500/40 transition" title="LinkedIn Profile">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="https://github.com/issacsodari" target="_blank" rel="noopener" class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition" title="GitHub Profile">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <button id="themeToggle" class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-yellow-400 hover:border-yellow-500/40 transition" title="Toggle Light / Dark Mode">
+            <i id="themeToggleIcon" data-lucide="sun" class="w-4 h-4"></i>
+          </button>
+          <a href="#resume" data-tab="resume" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs shadow-md transition flex items-center gap-1.5">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Resume</span>
+          </a>
         </div>
-      </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-1 text-xs font-medium text-slate-300">
-        <a href="#home" data-tab="home" class="nav-tab active px-3 py-2 rounded-lg transition hover:text-white">Home</a>
-        <a href="#about" data-tab="about" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">About Me</a>
-        <a href="#experience" data-tab="experience" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Experience</a>
-        <a href="#projects" data-tab="projects" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Projects & Labs</a>
-        <a href="#skills" data-tab="skills" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Technical Skills</a>
-        <a href="#learning" data-tab="learning" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Learning Hub</a>
-        <a href="#troubleshooting" data-tab="troubleshooting" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Troubleshooting</a>
-        <a href="#commands" data-tab="commands" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Commands</a>
-        <a href="#certifications" data-tab="certifications" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Certifications</a>
-        <a href="#interview" data-tab="interview" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Interview Prep</a>
-        <a href="#dashboard" data-tab="dashboard" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Dashboard</a>
-        <a href="#resume" data-tab="resume" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Resume</a>
-        <a href="#contact" data-tab="contact" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Contact</a>
-      </nav>
-
-      <!-- Utility Actions: Search, Theme Toggle, Mobile Menu -->
-      <div class="flex items-center gap-2">
-        <!-- Global Search Button -->
-        <button id="globalSearchBtn" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-blue-500/50 text-xs transition shadow-sm" title="Search platform (Ctrl+K)">
-          <i data-lucide="search" class="w-3.5 h-3.5 text-blue-400"></i>
-          <span class="hidden sm:inline">Search Hub...</span>
-          <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-slate-800 text-slate-400 rounded border border-slate-700">Ctrl K</kbd>
-        </button>
-
-        <!-- Theme Toggle -->
-        <button id="themeToggle" class="p-2 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-yellow-400 transition" title="Toggle Light / Dark Mode">
-          <i id="themeToggleIcon" data-lucide="sun" class="w-4 h-4"></i>
-        </button>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white transition">
-          <i data-lucide="menu" class="w-5 h-5"></i>
-        </button>
       </div>
 
-    </div>
+      <!-- Navigation Options Laid Out in 3 Structured Columns -->
+      <nav class="pt-2 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-3 gap-3">
+        
+        <!-- COLUMN 1: Profile & Career -->
+        <div class="bg-slate-900/60 rounded-xl p-2.5 border border-slate-800/80 hover:border-blue-500/30 transition">
+          <div class="flex items-center gap-2 px-2 pb-1.5 mb-1 border-b border-slate-800 text-[11px] font-bold uppercase tracking-wider text-cyan-400">
+            <i data-lucide="user" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>1. Profile & Career</span>
+          </div>
+          <div class="grid grid-cols-2 gap-1 text-xs">
+            <a href="#home" data-tab="home" class="nav-tab active px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="home" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Home</span>
+            </a>
+            <a href="#about" data-tab="about" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="info" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span>About Me</span>
+            </a>
+            <a href="#experience" data-tab="experience" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="briefcase" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Experience</span>
+            </a>
+            <a href="#resume" data-tab="resume" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="file-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Resume (ATS)</span>
+            </a>
+            <a href="#contact" data-tab="contact" class="nav-tab col-span-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+        </div>
 
-    <!-- Mobile Dropdown Navigation -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950 border-b border-slate-800 px-4 py-3 space-y-1 text-sm font-medium">
-      <a href="#home" data-tab="home" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Home</a>
-      <a href="#about" data-tab="about" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">About Me</a>
-      <a href="#experience" data-tab="experience" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Experience</a>
-      <a href="#projects" data-tab="projects" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Projects & Labs</a>
-      <a href="#skills" data-tab="skills" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Technical Skills</a>
-      <a href="#learning" data-tab="learning" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Learning Hub</a>
-      <a href="#troubleshooting" data-tab="troubleshooting" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Troubleshooting</a>
-      <a href="#commands" data-tab="commands" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Commands</a>
-      <a href="#certifications" data-tab="certifications" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Certifications</a>
-      <a href="#interview" data-tab="interview" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Interview Prep</a>
-      <a href="#dashboard" data-tab="dashboard" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Dashboard</a>
-      <a href="#resume" data-tab="resume" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Resume</a>
-      <a href="#contact" data-tab="contact" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Contact</a>
+        <!-- COLUMN 2: Cloud Knowledge Platform -->
+        <div class="bg-slate-900/60 rounded-xl p-2.5 border border-slate-800/80 hover:border-blue-500/30 transition">
+          <div class="flex items-center gap-2 px-2 pb-1.5 mb-1 border-b border-slate-800 text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>2. Cloud Knowledge Base</span>
+          </div>
+          <div class="grid grid-cols-2 gap-1 text-xs">
+            <a href="#skills" data-tab="skills" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Skills (85)</span>
+            </a>
+            <a href="#learning" data-tab="learning" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="book" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span>Learning Hub</span>
+            </a>
+            <a href="#troubleshooting" data-tab="troubleshooting" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="wrench" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Troubleshooting</span>
+            </a>
+            <a href="#commands" data-tab="commands" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Commands (50+)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- COLUMN 3: Labs & Preparation -->
+        <div class="bg-slate-900/60 rounded-xl p-2.5 border border-slate-800/80 hover:border-blue-500/30 transition">
+          <div class="flex items-center gap-2 px-2 pb-1.5 mb-1 border-b border-slate-800 text-[11px] font-bold uppercase tracking-wider text-emerald-400">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>3. Labs & Preparation</span>
+          </div>
+          <div class="grid grid-cols-2 gap-1 text-xs">
+            <a href="#projects" data-tab="projects" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="laptop" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Labs (15)</span>
+            </a>
+            <a href="#certifications" data-tab="certifications" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>Certifications</span>
+            </a>
+            <a href="#interview" data-tab="interview" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="help-circle" class="w-3.5 h-3.5 text-rose-400"></i>
+              <span>Interview Prep</span>
+            </a>
+            <a href="#dashboard" data-tab="dashboard" class="nav-tab px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span>Dashboard</span>
+            </a>
+          </div>
+        </div>
+
+      </nav>
+
     </div>
   </header>
 
