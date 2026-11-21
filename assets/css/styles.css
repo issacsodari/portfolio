@@ -1,56 +1,50 @@
 /* ============================================================================
-   AZURE CLOUD ADMINISTRATOR & TECHNICAL LEARNING PLATFORM
-   Custom Design System & Theme Styles
-   Author: Issac Sodari
+   MICROSOFT AZURE PORTAL AUTHENTIC DESIGN SYSTEM & THEME
+   Tailored for Issac Sodari - Azure Cloud Administrator Portfolio
    ============================================================================ */
 
 :root {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
 
-  /* Azure Dark Theme (Default) */
-  --bg-primary: #0a0f1d;
-  --bg-secondary: #0f172a;
-  --bg-card: #141e33;
-  --bg-card-hover: #1a2744;
-  --bg-input: #111a2e;
-  --border-color: #1e293b;
-  --border-focus: #0078d4;
-
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  /* Authentic Azure Portal Theme Colors (Dark) */
+  --portal-topbar: #0078d4;
+  --portal-topbar-dark: #005a9e;
+  --portal-bg: #0f172a;
+  --portal-sidebar: #0b1329;
+  --portal-card: #131d36;
+  --portal-card-hover: #1a2644;
+  --portal-border: #1e293b;
+  --portal-blade: #10192e;
 
   --azure-blue: #0078d4;
-  --azure-blue-light: #50e6ff;
-  --azure-blue-dark: #005a9e;
+  --azure-light: #50e6ff;
+  --azure-navy: #004578;
   --azure-accent: #2563eb;
-  --azure-glow: rgba(0, 120, 212, 0.25);
-
-  --badge-green: #10b981;
-  --badge-yellow: #f59e0b;
-  --badge-red: #ef4444;
-  --badge-purple: #8b5cf6;
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
 }
 
 [data-theme="light"] {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --bg-input: #f8fafc;
-  --border-color: #e2e8f0;
-  --border-focus: #0078d4;
-
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --portal-topbar: #0078d4;
+  --portal-topbar-dark: #005a9e;
+  --portal-bg: #f3f4f6;
+  --portal-sidebar: #ffffff;
+  --portal-card: #ffffff;
+  --portal-card-hover: #f8fafc;
+  --portal-border: #e2e8f0;
+  --portal-blade: #ffffff;
 
   --azure-blue: #0078d4;
-  --azure-blue-light: #0284c7;
-  --azure-blue-dark: #004578;
+  --azure-light: #0284c7;
+  --azure-navy: #00335a;
   --azure-accent: #1d4ed8;
-  --azure-glow: rgba(0, 120, 212, 0.12);
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
 }
 
 * {
@@ -62,146 +56,212 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+  background-color: var(--portal-bg);
+  color: var(--text-main);
+  line-height: 1.5;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: rgba(0, 0, 0, 0.1);
 }
 ::-webkit-scrollbar-thumb {
   background: #334155;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--azure-blue);
+  background: #0078d4;
 }
 
-/* Code and Typography */
-code, pre {
+/* Authentic Azure Top Bar */
+.azure-topbar {
+  background: #0078d4;
+  color: #ffffff;
+  height: 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Azure Sidebar Flyout */
+.azure-sidebar {
+  background: var(--portal-sidebar);
+  border-right: 1px solid var(--portal-border);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.azure-sidebar.collapsed {
+  width: 52px;
+}
+.azure-sidebar.collapsed .sidebar-text,
+.azure-sidebar.collapsed .sidebar-divider-title {
+  display: none;
+}
+.azure-sidebar.collapsed .sidebar-link {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Sidebar Item */
+.sidebar-link {
+  display: flex;
+  items-center;
+  gap: 12px;
+  padding: 8px 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.sidebar-link:hover {
+  background: rgba(0, 120, 212, 0.12);
+  color: var(--text-main);
+}
+
+.sidebar-link.active {
+  background: rgba(0, 120, 212, 0.18);
+  color: var(--azure-light);
+  border-left-color: #50e6ff;
+  font-weight: 600;
+}
+
+[data-theme="light"] .sidebar-link.active {
+  background: rgba(0, 120, 212, 0.1);
+  color: #0078d4;
+  border-left-color: #0078d4;
+}
+
+/* Azure Breadcrumbs */
+.azure-breadcrumbs {
+  background: var(--portal-blade);
+  border-bottom: 1px solid var(--portal-border);
+  font-size: 12px;
+}
+
+/* Azure Portal Service Icon Box */
+.azure-service-tile {
+  background: var(--portal-card);
+  border: 1px solid var(--portal-border);
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.azure-service-tile:hover {
+  transform: translateY(-2px);
+  border-color: #0078d4;
+  box-shadow: 0 8px 20px -4px rgba(0, 120, 212, 0.25);
+}
+
+/* Azure Portal Resource Table */
+.azure-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.azure-table th {
+  text-align: left;
+  padding: 8px 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--portal-border);
+  background: rgba(0, 0, 0, 0.05);
+}
+.azure-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--portal-border);
+  color: var(--text-main);
+}
+.azure-table tr:hover td {
+  background: rgba(0, 120, 212, 0.06);
+}
+
+/* Azure Command Bar */
+.azure-command-bar {
+  background: var(--portal-card);
+  border-bottom: 1px solid var(--portal-border);
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.azure-cmd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-main);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.azure-cmd-btn:hover {
+  background: rgba(0, 120, 212, 0.15);
+  border-color: rgba(0, 120, 212, 0.3);
+}
+
+/* Cloud Shell Terminal Drawer */
+.cloud-shell-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 340px;
+  background: #000000;
+  color: #f1f5f9;
   font-family: var(--font-mono);
+  border-top: 2px solid #0078d4;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cloud-shell-drawer.minimized {
+  transform: translateY(300px);
+}
+.cloud-shell-drawer.hidden {
+  display: none;
 }
 
-/* Glassmorphism Cards */
+/* Glassmorphism elements */
 .azure-glass {
-  background: rgba(20, 30, 51, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--portal-card);
+  border: 1px solid var(--portal-border);
 }
 
 [data-theme="light"] .azure-glass {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Azure Gradient Accents */
-.azure-gradient-text {
-  background: linear-gradient(135deg, #50e6ff 0%, #0078d4 50%, #2563eb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-[data-theme="light"] .azure-gradient-text {
-  background: linear-gradient(135deg, #0078d4 0%, #0284c7 50%, #1e40af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.azure-gradient-bg {
-  background: linear-gradient(135deg, #0078d4 0%, #2563eb 100%);
-}
-
-.azure-gradient-border {
-  position: relative;
-  border-radius: 0.75rem;
-}
-.azure-gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 0.8rem;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(80, 230, 255, 0.4), rgba(0, 120, 212, 0.1), rgba(37, 99, 235, 0.3));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Animations */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(0, 120, 212, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(80, 230, 255, 0.4);
-  }
-}
-
-.glow-azure {
-  animation: pulseGlow 4s infinite ease-in-out;
-}
-
-/* Interactive Card Transitions */
-.interactive-card {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
-}
-.interactive-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 120, 212, 0.3);
-}
-
-[data-theme="light"] .interactive-card:hover {
-  box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 120, 212, 0.3);
-}
-
-/* Tab Active States */
-.nav-tab.active {
-  color: #50e6ff !important;
-  background: rgba(0, 120, 212, 0.22) !important;
-  border: 1px solid rgba(80, 230, 255, 0.45) !important;
-  box-shadow: 0 0 12px rgba(0, 120, 212, 0.3);
-  font-weight: 700;
-}
-
-[data-theme="light"] .nav-tab.active {
-  color: #0078d4 !important;
-  background: rgba(0, 120, 212, 0.12) !important;
-  border: 1px solid rgba(0, 120, 212, 0.4) !important;
-  box-shadow: 0 0 8px rgba(0, 120, 212, 0.15);
-  font-weight: 700;
-}
-
-/* Modal Overlay */
-.modal-overlay {
-  background: rgba(10, 15, 29, 0.85);
-  backdrop-filter: blur(8px);
-}
-
-/* Copy Button Tooltip */
+/* Copy Tooltip */
 .copy-tooltip {
   position: relative;
 }
 .copy-tooltip::after {
   content: 'Copied!';
   position: absolute;
-  top: -28px;
+  top: -26px;
   right: 0;
   background: #10b981;
   color: white;
-  padding: 2px 8px;
+  padding: 2px 6px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 10px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -210,32 +270,13 @@ code, pre {
   opacity: 1;
 }
 
-/* Print Styles for ATS Resume */
+/* Print Rules */
 @media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
-    font-size: 11pt;
-  }
-  .no-print, header, nav, footer, #searchModal, #detailModal, .tab-bar, .theme-toggle, .btn-action {
+  .azure-topbar, .azure-sidebar, .azure-breadcrumbs, .cloud-shell-drawer, #searchModal, #detailModal, .no-print {
     display: none !important;
   }
-  .print-only {
-    display: block !important;
-  }
-  #page-resume {
-    display: block !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .resume-card {
-    border: none !important;
-    box-shadow: none !important;
-    background: transparent !important;
-  }
-  a {
+  body, .page-view, #page-resume {
+    background: #ffffff !important;
     color: #000000 !important;
-    text-decoration: underline;
   }
 }

@@ -94,6 +94,7 @@
 
     // Update URL hash
     window.location.hash = tabId;
+    updateBreadcrumb(tabId);
 
     if (scroll) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -137,6 +138,27 @@
 
   // Event Listeners
   function setupEventListeners() {
+
+    const sidebarBtn = document.getElementById('sidebarToggleBtn');
+    if (sidebarBtn) {
+      sidebarBtn.addEventListener('click', toggleSidebar);
+    }
+
+    const cloudShellBtn = document.getElementById('cloudShellBtn');
+    if (cloudShellBtn) {
+      cloudShellBtn.addEventListener('click', toggleCloudShell);
+    }
+    const closeCloudShellBtn = document.getElementById('closeCloudShellBtn');
+    if (closeCloudShellBtn) {
+      closeCloudShellBtn.addEventListener('click', toggleCloudShell);
+    }
+
+    const globalPortalSearch = document.getElementById('globalPortalSearch');
+    if (globalPortalSearch) {
+      globalPortalSearch.addEventListener('click', openSearchModal);
+      globalPortalSearch.addEventListener('focus', openSearchModal);
+    }
+
     // Nav tabs click
     document.querySelectorAll('[data-tab]').forEach(el => {
       el.addEventListener('click', e => {
@@ -1101,8 +1123,84 @@
     renderTroubleshooting();
   }
 
+
+  // Azure Cloud Shell Terminal Simulator
+  const shellOutputs = {
+    'az vm list -g rg-payroll-prod -d -o table': `Name          ResourceGroup    PowerState    PublicIps    PrivateIps
+------------  ---------------  ------------  -----------  ------------
+vm-pay-app01  rg-payroll-prod  VM running                 10.0.1.4
+vm-pay-app02  rg-payroll-prod  VM running                 10.0.1.5
+vm-pay-db01   rg-payroll-prod  VM running                 10.0.1.8`,
+
+    'Get-AzVM -Status | Select-Object Name, PowerState': `Name          PowerState
+----          ----------
+vm-pay-app01  VM running
+vm-pay-app02  VM running
+vm-pay-db01   VM running`,
+
+    'Get-MgUser -UserId issacsodari8@gmail.com': `DisplayName   AccountEnabled  UserPrincipalName       Department
+-----------   --------------  -----------------       ----------
+Issac Sodari  True            issacsodari@tenant.com  CloudOperations`,
+
+    'Heartbeat | summarize LastCall = max(TimeGenerated) by Computer': `Computer      LastCall
+------------  ----------------------------
+vm-pay-app01  2026-11-21T22:50:00.000Z (Active)
+vm-pay-app02  2026-11-21T22:50:00.000Z (Active)`
+  };
+
+  function runShellCmd(cmd) {
+    const term = document.getElementById('shellTerminalOutput');
+    if (!term) return;
+    const output = shellOutputs[cmd] || `Command executed successfully. (Status: 200 OK)`;
+    const newEntry = document.createElement('div');
+    newEntry.className = 'pt-2 space-y-1';
+    newEntry.innerHTML = `
+      <div class="text-cyan-400 font-bold">PS /home/issacsodari&gt; ${cmd}</div>
+      <pre class="text-slate-300 font-mono text-xs whitespace-pre-wrap">${output}</pre>
+    `;
+    term.appendChild(newEntry);
+    term.scrollTop = term.scrollHeight;
+  }
+
+  function toggleCloudShell() {
+    const drawer = document.getElementById('cloudShellDrawer');
+    if (drawer) drawer.classList.toggle('hidden');
+  }
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById('azureSidebar');
+    if (sidebar) sidebar.classList.toggle('collapsed');
+  }
+
+  const breadcrumbsMap = {
+    'home': 'IssacSodari | Overview',
+    'experience': 'VirtualMachines > vm-payroll-prod | Overview',
+    'skills': 'Microsoft.Compute & Network > AllServices (85 Skills)',
+    'learning': 'Microsoft.Learn > TechnicalLearningHub',
+    'troubleshooting': 'Microsoft.Support > TroubleshootingRunbooks',
+    'commands': 'Microsoft.Automation > CommandReferenceLibrary',
+    'projects': 'Microsoft.Resources > PracticalLabs (15)',
+    'certifications': 'Microsoft.Credentials > AZ-104 | Verified',
+    'interview': 'Microsoft.Assessment > TechnicalInterviewPrep',
+    'dashboard': 'Microsoft.Portal > PersonalLearningDashboard',
+    'resume': 'Microsoft.HR > IssacSodari_Resume_ATS.pdf',
+    'about': 'Microsoft.Profile > IssacSodari | Bio',
+    'contact': 'Microsoft.Support > NewSupportRequest'
+  };
+
+  function updateBreadcrumb(tabId) {
+    const el = document.getElementById('currentBreadcrumb');
+    if (el) {
+      el.textContent = breadcrumbsMap[tabId] || 'IssacSodari | Overview';
+    }
+  }
+
   // Public API exposed to window
   window.App = {
+    runShellCmd,
+    toggleCloudShell,
+    toggleSidebar,
+    updateBreadcrumb,
     navigateTo,
     openSkillDetail,
     openTroubleshootingDetail,
