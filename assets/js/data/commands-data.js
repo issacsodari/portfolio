@@ -32,7 +32,7 @@ window.COMMANDS_DATA = [
     purpose: "Reboot an Azure Virtual Machine operating system.",
     whenToUse: "When guest OS services are unresponsive or after applying patches/configuration changes.",
     example: "az vm restart -g rg-payroll-prod -n vm-pay-app01",
-    expectedOutput: "{\n  "startTime": "2026-11-21T14:30:00Z",\n  "status": "Succeeded"\n}",
+    expectedOutput: "{\\n  \\\"startTime\\\": \\\"2026-11-21T14:30:00Z\\\",\\n  \\\"status\\\": \\\"Succeeded\\\"\\n}",
     safety: "Modifies Resources",
     safetyColor: "yellow",
     troubleshooting: "Recycles the VM OS to clear hung memory threads or restart crashed services.",

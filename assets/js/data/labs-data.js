@@ -118,7 +118,7 @@ window.LABS_DATA = [
       "4. Create scheduled query alert rule targeting the workspace, evaluating every 5 minutes.",
       "5. Simulate CPU load on the VM using PowerShell script to trigger the alert."
     ],
-    commands: "az monitor scheduled-query create -g rg-lab-ops -n alert-high-cpu --scopes $(az monitor log-analytics workspace show -g rg-lab-ops -n law-ops-lab --query id -o tsv) --condition 'count 'Perf | where CounterName == "% Processor Time" and CounterValue > 85' > 0' --action ag-ops-alerts",
+    commands: "az monitor scheduled-query create -g rg-lab-ops -n alert-high-cpu --scopes /subscriptions/sub-id/resourceGroups/rg-lab-ops/providers/Microsoft.OperationalInsights/workspaces/law-ops-lab --condition \\'count 'Perf | where CounterName == '% Processor Time' and CounterValue > 85' > 0\\' --action ag-ops-alerts",
     expectedResult: "Alert state changes to 'Fired' in Azure Monitor; email notification arrives at registered address within 5 minutes.",
     verification: "Check Azure Monitor -> Alerts -> Fired alerts. Verify incident details and alert suppression settings.",
     troubleshooting: "If logs do not populate, verify the Data Collection Rule is linked to the VM and the Azure Monitor Agent service is running.",
@@ -142,7 +142,7 @@ window.LABS_DATA = [
       "4. Assign 'Virtual Machine Contributor' RBAC role to 'SG-CloudOps-Team' scoped to rg-lab-compute.",
       "5. Log in as test user and verify they can start/stop VMs in rg-lab-compute, but cannot modify storage or networking."
     ],
-    commands: "New-MgGroup -DisplayName 'SG-CloudOps-Team' -MailEnabled:$false -MailNickname 'sgcloudops' -SecurityEnabled:$true -GroupTypes @('DynamicMembership') -MembershipRule '(user.department -eq "CloudOps")' -MembershipRuleProcessingState 'On'",
+    commands: "New-MgGroup -DisplayName 'SG-CloudOps-Team' -MailEnabled:$false -MailNickname 'sgcloudops' -SecurityEnabled:$true -GroupTypes @('DynamicMembership') -MembershipRule '(user.department -eq 'CloudOps')' -MembershipRuleProcessingState 'On'",
     expectedResult: "Users are dynamically added to the group based on HR department attributes; RBAC permissions apply automatically without manual intervention.",
     verification: "Check group members in Entra admin center. Test role assignment via 'az role assignment list --assignee <groupId>'.",
     troubleshooting: "Dynamic group processing can take 5-15 minutes. Check processing status in the group Overview blade.",
@@ -218,7 +218,7 @@ window.LABS_DATA = [
     ],
     commands: "Connect-MgGraph -Scopes 'User.ReadWrite.All'; Import-Csv './new_hires.csv' | ForEach-Object { New-MgUser -DisplayName $_.DisplayName -UserPrincipalName $_.UserPrincipalName -Department $_.Department -PasswordProfile @{Password=$_.TemporaryPassword; ForceChangePasswordNextSignIn=$true} -AccountEnabled }",
     expectedResult: "All users in CSV provisioned cleanly in Entra ID with mandatory password change on first logon.",
-    verification: "Query newly created users: 'Get-MgUser -Filter "department eq 'CloudOps'" | Select-Object DisplayName, UserPrincipalName'.",
+    verification: "Query newly created users: Get-MgUser -Filter \\\"department eq 'CloudOps'\\\" | Select-Object DisplayName, UserPrincipalName",
     troubleshooting: "If UPN collision occurs, catch error code 'Request_BadRequest' and append a random numeric suffix.",
     learningOutcomes: "Production identity lifecycle automation, eliminating human entry errors, and managing bulk cloud onboarding."
   },
@@ -341,7 +341,7 @@ window.LABS_DATA = [
       "5. Enable 'ID tokens' and 'Access tokens' under Authentication blade.",
       "6. Assign 'SG-CloudOps-Team' under Enterprise Applications -> Users and groups to restrict access."
     ],
-    commands: "az ad app create --display-name 'App-Payroll-SelfService' --web-redirect-uris 'https://payroll.company.com/signin-oidc' --required-resource-accesses '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'",
+    commands: "az ad app create --display-name 'App-Payroll-SelfService' --web-redirect-uris 'https://payroll.company.com/signin-oidc' --required-resource-accesses '[{'resourceAppId':'00000003-0000-0000-c000-000000000000','resourceAccess':[{'id':'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type':'Scope'}]}]'",
     expectedResult: "Application registered with Client ID and Tenant ID; test user can authenticate via Microsoft SSO and view application dashboard.",
     verification: "Inspect returned JWT token at jwt.ms to verify claims (UPN, roles, email, groups).",
     troubleshooting: "If users receive AADSTS50105, ensure 'Assignment required?' is either set to False or user/group is explicitly assigned.",
