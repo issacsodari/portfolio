@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issac Sodari | Professional Azure Cloud Administrator & Technical Learning Platform</title>
+  <meta name="description" content="Professional portfolio and technical learning platform of Issac Sodari - Microsoft Certified Azure Administrator (AZ-104) with 4.8 years experience in Azure Cloud Operations, Entra ID (IAM), Microsoft 365, and ITIL. Available for immediate joining.">
+  <meta name="keywords" content="Azure Cloud Administrator, Cloud Operations, Microsoft Entra ID, IAM, Microsoft 365, Exchange Online, AZ-104, PowerShell, ITIL, Hyderabad">
+  <meta name="author" content="Issac Sodari">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230078D4'><path d='M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z'/></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            azure: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0078d4',
+              600: '#005a9e',
+              700: '#004578',
+              800: '#00335a',
+              900: '#00223d',
+              accent: '#50e6ff'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Design System Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ========================================================================
+       RECRUITER 30-SECOND QUICK SCAN BANNER
+       ======================================================================== -->
+  <aside class="bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-800 text-white text-xs py-2.5 px-4 shadow-md no-print" aria-label="Recruiter quick scan">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 bg-emerald-500 text-slate-950 font-extrabold px-2.5 py-0.5 rounded-full text-[11px] animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-slate-950"></span> IMMEDIATE JOINER
+        </span>
+        <span class="font-medium text-blue-100 hidden sm:inline">Notice Period: <strong>0 Days</strong> | Last Working Day: <strong>15 July 2026</strong></span>
+        <span class="text-blue-200 hidden md:inline">|</span>
+        <span class="font-medium text-blue-100 hidden md:inline">Total Experience: <strong>4 Years 8 Months</strong> (Tata Consultancy Services - Client: Microsoft)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="bg-white/10 px-2 py-0.5 rounded text-[11px] text-blue-100 font-semibold border border-white/20">AZ-104 Certified</span>
+        <a href="#resume" data-tab="resume" class="bg-white text-blue-900 font-bold px-3 py-1 rounded text-[11px] hover:bg-blue-50 transition shadow-sm">View Recruiter Profile</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MAIN NAVIGATION HEADER
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      
+      <!-- Logo / Brand -->
+      <a href="#home" data-tab="home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-0.5 shadow-lg group-hover:scale-105 transition">
+          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-cyan-400">
+            <i data-lucide="cloud" class="w-5 h-5"></i>
+          </div>
+        </div>
+        <div>
+          <div class="font-extrabold text-base tracking-tight text-white flex items-center gap-1.5">
+            <span>ISSAC SODARI</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+          </div>
+          <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold font-mono">Azure Cloud Administrator</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 text-xs font-medium text-slate-300">
+        <a href="#home" data-tab="home" class="nav-tab active px-3 py-2 rounded-lg transition hover:text-white">Home</a>
+        <a href="#about" data-tab="about" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">About Me</a>
+        <a href="#experience" data-tab="experience" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Experience</a>
+        <a href="#projects" data-tab="projects" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Projects & Labs</a>
+        <a href="#skills" data-tab="skills" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Technical Skills</a>
+        <a href="#learning" data-tab="learning" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Learning Hub</a>
+        <a href="#troubleshooting" data-tab="troubleshooting" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Troubleshooting</a>
+        <a href="#commands" data-tab="commands" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Commands</a>
+        <a href="#certifications" data-tab="certifications" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Certifications</a>
+        <a href="#interview" data-tab="interview" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Interview Prep</a>
+        <a href="#dashboard" data-tab="dashboard" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Dashboard</a>
+        <a href="#resume" data-tab="resume" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Resume</a>
+        <a href="#contact" data-tab="contact" class="nav-tab px-3 py-2 rounded-lg transition hover:text-white">Contact</a>
+      </nav>
+
+      <!-- Utility Actions: Search, Theme Toggle, Mobile Menu -->
+      <div class="flex items-center gap-2">
+        <!-- Global Search Button -->
+        <button id="globalSearchBtn" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-blue-500/50 text-xs transition shadow-sm" title="Search platform (Ctrl+K)">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span class="hidden sm:inline">Search Hub...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-slate-800 text-slate-400 rounded border border-slate-700">Ctrl K</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="p-2 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-yellow-400 transition" title="Toggle Light / Dark Mode">
+          <i id="themeToggleIcon" data-lucide="sun" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white transition">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950 border-b border-slate-800 px-4 py-3 space-y-1 text-sm font-medium">
+      <a href="#home" data-tab="home" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Home</a>
+      <a href="#about" data-tab="about" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">About Me</a>
+      <a href="#experience" data-tab="experience" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Experience</a>
+      <a href="#projects" data-tab="projects" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Projects & Labs</a>
+      <a href="#skills" data-tab="skills" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Technical Skills</a>
+      <a href="#learning" data-tab="learning" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Learning Hub</a>
+      <a href="#troubleshooting" data-tab="troubleshooting" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Troubleshooting</a>
+      <a href="#commands" data-tab="commands" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Commands</a>
+      <a href="#certifications" data-tab="certifications" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Certifications</a>
+      <a href="#interview" data-tab="interview" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Interview Prep</a>
+      <a href="#dashboard" data-tab="dashboard" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Dashboard</a>
+      <a href="#resume" data-tab="resume" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Resume</a>
+      <a href="#contact" data-tab="contact" class="block py-2 px-3 rounded hover:bg-slate-900 text-slate-300">Contact</a>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN APPLICATION VIEW CONTAINERS
+       ======================================================================== -->
+  <main class="flex-grow">
+
+    <!-- --------------------------------------------------------------------
+         1. HOME PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-home" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+      
+      <!-- Hero Section -->
+      <div class="relative rounded-3xl p-8 sm:p-12 lg:p-16 overflow-hidden border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950/40 shadow-2xl">
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-3xl space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>Microsoft Certified: Azure Administrator Associate (AZ-104)</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Safeguarding Enterprise Cloud Availability & Identity Governance
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+            I'm <strong class="text-white">Issac Sodari</strong>, an Azure Cloud Administrator and Cloud Operations Engineer with <strong class="text-cyan-400">4 years 8 months</strong> of hands-on enterprise experience at <strong class="text-white">Tata Consultancy Services</strong> supporting <strong class="text-white">Microsoft's</strong> 24x7 production cloud infrastructure, payroll platform, and Microsoft 365 / Entra ID environments.
+          </p>
+
+          <!-- Action Buttons / CTAs -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#projects" data-tab="projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-blue-500/20 transition flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>Explore Projects & Labs</span>
+            </a>
+            <a href="#learning" data-tab="learning" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm transition flex items-center gap-2">
+              <i data-lucide="book-open" class="w-4 h-4 text-cyan-400"></i>
+              <span>Technical Learning Hub</span>
+            </a>
+            <a href="#resume" data-tab="resume" class="px-5 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300 border border-slate-800 font-semibold text-sm transition flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>
+              <span>Recruiter Profile</span>
+            </a>
+            <a href="#contact" data-tab="contact" class="px-5 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300 border border-slate-800 font-semibold text-sm transition flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-blue-400"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <!-- Quick Metadata Links -->
+          <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-slate-400 font-medium">
+            <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-400"></i> Hyderabad, Telangana, India</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-green-400"></i> Immediate Joining (0 Days Notice)</span>
+            <a href="https://linkedin.com/in/issacsodari" target="_blank" rel="noopener" class="flex items-center gap-1 text-blue-400 hover:underline"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn</a>
+            <a href="https://github.com/issacsodari" target="_blank" rel="noopener" class="flex items-center gap-1 text-slate-300 hover:underline"><i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Quantitative Performance Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400 mb-1">4.8 Yrs</div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total IT Experience</p>
+          <span class="text-[11px] text-slate-500">TCS (Client: Microsoft)</span>
+        </div>
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-blue-400 mb-1">99.9%</div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Production SLA</p>
+          <span class="text-[11px] text-slate-500">24x7 Rotational On-Call</span>
+        </div>
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 mb-1">2 Major</div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Cloud Engagements</p>
+          <span class="text-[11px] text-slate-500">Payroll Ops + MCAPS IAM</span>
+        </div>
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div class="text-3xl sm:text-4xl font-extrabold text-purple-400 mb-1">3 Certified</div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Microsoft Credentials</p>
+          <span class="text-[11px] text-slate-500">AZ-104, AZ-900, AI-900</span>
+        </div>
+      </div>
+
+      <!-- Core Technical Competencies Grid -->
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-white tracking-tight">Core Competencies & Technology Matrix</h2>
+            <p class="text-sm text-slate-400">Hands-on enterprise administration across infrastructure, security, messaging, and automation.</p>
+          </div>
+          <a href="#skills" data-tab="skills" class="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+            <span>View All 85 Skills</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+              <i data-lucide="server" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Azure Infrastructure & IaaS</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Provisioning and lifecycle operations for Azure Virtual Machines, Managed Disks, Storage Accounts (Blob/Files), Virtual Networks, Subnets, NSGs, Azure Backup, and Azure Site Recovery (ASR) disaster drills.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Virtual Machines</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">VNets & Peering</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">NSG Rules</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">ASR DR Drills</span>
+            </div>
+          </div>
+
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+              <i data-lucide="user-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Entra ID & Identity Governance</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Zero Trust identity administration: JML user lifecycle, Azure RBAC least privilege, Privileged Identity Management (PIM), Conditional Access policy design, MFA enforcement, and Sign-in log threat investigation.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Microsoft Entra ID</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Conditional Access</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">PIM</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Sign-in Logs</span>
+            </div>
+          </div>
+
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Monitoring, Automation & ITSM</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Observability via Azure Monitor, Log Analytics (KQL queries), and Action Groups. Production scripting with PowerShell and Azure CLI. ITIL Sev 1/Sev 2 incident management and RCA in Dynamics 365.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Azure Monitor (KQL)</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">PowerShell (Az/Graph)</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">ITIL Incident Mgmt</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Dynamics 365</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Platform Jump Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="#learning" data-tab="learning" class="azure-glass rounded-xl p-5 border border-slate-800 hover:border-blue-500/50 transition flex items-center justify-between group">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition">
+              <i data-lucide="book-open" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Technical Learning Hub</h4>
+              <p class="text-xs text-slate-400">Deep-dive architecture & guides</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-blue-400 transition"></i>
+        </a>
+
+        <a href="#troubleshooting" data-tab="troubleshooting" class="azure-glass rounded-xl p-5 border border-slate-800 hover:border-blue-500/50 transition flex items-center justify-between group">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:scale-110 transition">
+              <i data-lucide="wrench" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Troubleshooting Runbooks</h4>
+              <p class="text-xs text-slate-400">Production incident resolution guides</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-amber-400 transition"></i>
+        </a>
+
+        <a href="#interview" data-tab="interview" class="azure-glass rounded-xl p-5 border border-slate-800 hover:border-blue-500/50 transition flex items-center justify-between group">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Interview Prep & Quiz</h4>
+              <p class="text-xs text-slate-400">Senior technical Q&A + 10-Q test</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         2. ABOUT ME PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-about" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 hidden">
+      <div class="border-b border-slate-800 pb-6">
+        <h1 class="text-3xl font-extrabold text-white">About Me & Professional Background</h1>
+        <p class="text-slate-400 text-sm mt-1">4.8 years of hands-on cloud operations experience delivering 24x7 support for Microsoft enterprise services.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Biography & Career Objective -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="user" class="w-5 h-5 text-blue-400"></i>
+              <span>Professional Introduction</span>
+            </h2>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              I am a Microsoft Certified Azure Administrator (AZ-104) with 4 years and 8 months of hands-on enterprise IT experience at <strong>Tata Consultancy Services (TCS)</strong>, supporting Microsoft's enterprise cloud and a business-critical payroll application in a round-the-clock 24x7, SLA-driven production operations model.
+            </p>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              My core expertise bridges Azure IaaS/PaaS infrastructure operations, monitoring, and production support with identity governance in Microsoft Entra ID (IAM), Microsoft 365, and Exchange Online. I apply ITIL service management frameworks in Microsoft Dynamics 365 to handle Sev 1 and Sev 2 incidents end to end, and automate routine administrative operations using PowerShell, Microsoft Graph, and Azure CLI.
+            </p>
+            <div class="bg-blue-950/20 p-4 rounded-xl border border-blue-800/40 text-xs text-slate-300">
+              <strong class="text-blue-400 block mb-1 uppercase tracking-wider">Career Objective:</strong>
+              To develop further as an Azure Cloud Administrator, Cloud Operations Engineer, and Identity & Access Management (IAM) Specialist, applying deep technical rigor to safeguard high-availability enterprise services and automate infrastructure lifecycles.
+            </div>
+          </div>
+
+          <!-- Career Timeline -->
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-6">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="calendar" class="w-5 h-5 text-cyan-400"></i>
+              <span>Career Journey Timeline</span>
+            </h2>
+
+            <div class="relative border-l-2 border-slate-800 ml-3 space-y-8 pl-6">
+              <!-- Milestone 1 -->
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-950"></span>
+                <span class="text-xs font-semibold text-cyan-400">Nov 2024 – Jul 2026</span>
+                <h3 class="text-base font-bold text-white">Global Azure Cloud Administrator – L2</h3>
+                <p class="text-xs text-slate-400 font-medium">Tata Consultancy Services | Client: Microsoft (MCAPS Trust Protection Systems)</p>
+                <p class="text-xs text-slate-300 mt-2">Delivered L2 administration of Azure, Microsoft Entra ID, Microsoft 365, and Exchange Online for a global Microsoft business group. Enforced least-privilege RBAC, governed PIM activations, investigated risky users/sign-ins, and automated identity audits.</p>
+              </div>
+
+              <!-- Milestone 2 -->
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950"></span>
+                <span class="text-xs font-semibold text-blue-400">Nov 2021 – Oct 2024</span>
+                <h3 class="text-base font-bold text-white">Cloud Operations & Automation Specialist</h3>
+                <p class="text-xs text-slate-400 font-medium">Tata Consultancy Services | Client: Microsoft (Microsoft Payroll Platform)</p>
+                <p class="text-xs text-slate-300 mt-2">Provided L2 production support and Azure IaaS operations for Microsoft's business-critical payroll platform running on Azure VMs, networking, Azure SQL DB, Azure Data Factory, and WebJobs. Monitored SLAs, ran ASR DR drills, and resolved Sev 1/2 incidents.</p>
+              </div>
+
+              <!-- Milestone 3 -->
+              <div class="relative">
+                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></span>
+                <span class="text-xs font-semibold text-slate-400">Graduation</span>
+                <h3 class="text-base font-bold text-white">Bachelor of Technology (B.Tech)</h3>
+                <p class="text-xs text-slate-400 font-medium">JNTUH College of Engineering Jagtial</p>
+                <p class="text-xs text-slate-300 mt-1">Electronics and Telecommunication Engineering, Jawaharlal Nehru Technological University Hyderabad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Details -->
+        <div class="space-y-6">
+          <!-- Availability Card -->
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+              <span>Employment Availability</span>
+            </h3>
+            <ul class="text-xs space-y-2.5 text-slate-300">
+              <li class="flex justify-between border-b border-slate-800 pb-2">
+                <span class="text-slate-400">Status:</span>
+                <strong class="text-emerald-400">Available Immediately</strong>
+              </li>
+              <li class="flex justify-between border-b border-slate-800 pb-2">
+                <span class="text-slate-400">Notice Period:</span>
+                <strong class="text-white">0 Days</strong>
+              </li>
+              <li class="flex justify-between border-b border-slate-800 pb-2">
+                <span class="text-slate-400">Last Working Day:</span>
+                <strong class="text-white">15 July 2026</strong>
+              </li>
+              <li class="flex justify-between border-b border-slate-800 pb-2">
+                <span class="text-slate-400">Current CTC:</span>
+                <strong class="text-white">INR 4,37,000</strong>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-slate-400">Expected CTC:</span>
+                <strong class="text-blue-400">Negotiable / Standards</strong>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Education Card -->
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-cyan-400"></i>
+              <span>Education</span>
+            </h3>
+            <div class="text-xs text-slate-300 space-y-1">
+              <strong class="text-white block">B.Tech in Electronics & Telecommunication</strong>
+              <p class="text-slate-400">JNTUH College of Engineering Jagtial</p>
+              <p class="text-slate-500">Telangana, India</p>
+            </div>
+          </div>
+
+          <!-- Verified Certifications Card -->
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-purple-400"></i>
+              <span>Certifications</span>
+            </h3>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
+                <strong class="text-white block">Microsoft Azure Administrator</strong>
+                <span class="text-blue-400 font-semibold">AZ-104</span> <span class="text-slate-500">• Verified</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
+                <strong class="text-white block">Azure Fundamentals</strong>
+                <span class="text-cyan-400 font-semibold">AZ-900</span> <span class="text-slate-500">• Verified</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
+                <strong class="text-white block">Azure AI Fundamentals</strong>
+                <span class="text-purple-400 font-semibold">AI-900</span> <span class="text-slate-500">• Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         3. EXPERIENCE PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-experience" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 hidden">
+      <div class="border-b border-slate-800 pb-6">
+        <h1 class="text-3xl font-extrabold text-white">Professional Experience & Enterprise Engagements</h1>
+        <p class="text-slate-400 text-sm mt-1">Detailed breakdown of enterprise roles at Tata Consultancy Services supporting client Microsoft.</p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Project 1 -->
+        <div class="azure-glass rounded-2xl p-8 border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Project 1 • 24x7 Production Operations</span>
+              <h2 class="text-2xl font-bold text-white mt-1">Microsoft Payroll Application & Azure Infrastructure Operations</h2>
+              <p class="text-sm text-slate-400"><strong>Role:</strong> Cloud Operations & Automation Specialist | <strong>Client:</strong> Microsoft | <strong>Timeline:</strong> Nov 2021 – Oct 2024</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-500 block">Employer</span>
+              <strong class="text-sm text-slate-200">Tata Consultancy Services (TCS)</strong>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Provided L2 production support and Azure infrastructure operations for Microsoft's business-critical payroll platform, which runs on Azure Virtual Machines, Azure networking, Azure SQL Database, Azure Data Factory (ADF), and Azure WebJobs. Maintained 99.9% uptime across monthly payroll calculation runs.
+          </p>
+
+          <div class="space-y-3">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-blue-400">Technical Responsibilities:</h3>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li><strong>Azure IaaS Administration:</strong> Managed fleet of Azure VMs: health monitoring, start/stop/restart operations, OS disk performance troubleshooting, and connectivity triage. Maintained Storage Accounts, Blob containers, VNets, subnets, and NSG rules.</li>
+              <li><strong>Private Networking & Security:</strong> Configured Private Endpoints and Private DNS zones to secure communication between application tiers and Azure SQL Database, isolating backend traffic from the public internet.</li>
+              <li><strong>Bicep Provisioning & Patch Compliance:</strong> Deployed and updated cloud resources from Bicep templates using Azure CLI and PowerShell; managed monthly VM OS security patch compliance via Azure Update Manager.</li>
+              <li><strong>Backup & Disaster Recovery:</strong> Monitored daily Azure Backup jobs in Recovery Services Vaults, executed monthly file and full-VM restore tests, and ran bi-annual Azure Site Recovery (ASR) DR drills to enforce RTO and RPO compliance.</li>
+              <li><strong>Observability & KQL:</strong> Investigated production alerts from Azure Monitor, VM Insights, Service Health, and Action Groups. Queried Log Analytics using KQL to correlate application exceptions and isolated network drops with Network Watcher.</li>
+              <li><strong>Sev 1 & Sev 2 Incident Management:</strong> Handled payroll incidents end to end in Microsoft Dynamics 365. Troubleshot payroll batch failures alongside ADF, WebJobs, and SQL teams, joining emergency major incident bridges and driving RCA.</li>
+              <li><strong>PowerShell Automation:</strong> Authored daily automated health check scripts (Get-AzVM -Status, Get-AzRecoveryServicesBackupJob, Get-AzMetric) that reduced manual shift handoff preparation from 45 minutes to under 2 minutes.</li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800">
+            <span class="text-xs font-semibold text-slate-400 block mb-2">Technologies & Toolset:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Azure Virtual Machines</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Azure Storage & Blobs</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Virtual Networks & NSGs</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Private Endpoints</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Azure SQL Database</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Azure Data Factory (ADF)</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Azure Monitor & KQL</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Recovery Services Vault (ASR)</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">PowerShell & Azure CLI</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Dynamics 365 (ITIL)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="azure-glass rounded-2xl p-8 border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Project 2 • Enterprise IAM & M365</span>
+              <h2 class="text-2xl font-bold text-white mt-1">Azure Cloud Administration, IAM & Microsoft 365 Administration</h2>
+              <p class="text-sm text-slate-400"><strong>Role:</strong> Global Azure Cloud Administrator – L2 | <strong>Client:</strong> Microsoft (MCAPS Trust Protection Systems) | <strong>Timeline:</strong> Nov 2024 – Jul 2026</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-500 block">Employer</span>
+              <strong class="text-sm text-slate-200">Tata Consultancy Services (TCS)</strong>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Delivered L2 administration of Azure, Microsoft Entra ID, Microsoft 365, and Exchange Online for a global Microsoft business group, overseeing security monitoring, identity lifecycle governance, and compliance operations.
+          </p>
+
+          <div class="space-y-3">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-cyan-400">Technical Responsibilities:</h3>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li><strong>Identity Lifecycle Governance:</strong> Administered Microsoft Entra ID user accounts, security groups, and guest (B2B) accounts across Joiner, Mover, and Leaver (JML) workflows. Enforced least-privilege RBAC role assignments.</li>
+              <li><strong>Privileged Identity Management (PIM):</strong> Governed high-privilege directory and Azure subscription role activations with mandatory justification, ticket numbers, and automated expiration windows; conducted quarterly Access Reviews.</li>
+              <li><strong>Authentication & Conditional Access Triage:</strong> Diagnosed sign-in failures, MFA method resets, and Conditional Access policy blocks using Entra ID Sign-in logs, Audit logs, and the What If diagnostic tool.</li>
+              <li><strong>Security & Threat Investigation:</strong> Reviewed risky users and risky sign-ins flagged by Entra ID Protection and Microsoft Defender; revoked active sessions and enforced password resets on compromised accounts.</li>
+              <li><strong>Exchange Online Administration:</strong> Managed user, shared, and resource mailboxes, distribution groups, and mail flow rules. Assigned Full Access and Send As permissions; traced email delivery and quarantined messages using Message Trace and EOP.</li>
+              <li><strong>Service Tree Mapping:</strong> Leveraged Microsoft Service Tree to trace service dependencies and identify business component owners, ensuring incident escalations and change requests reached appropriate teams.</li>
+              <li><strong>Graph PowerShell Automation:</strong> Built automation scripts for bulk onboarding/offboarding, license auditing, and mailbox permission CSV reporting using modern Microsoft Graph PowerShell (Get-MgUser, Get-MgUserLicenseDetail, Get-MailboxPermission).</li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800">
+            <span class="text-xs font-semibold text-slate-400 block mb-2">Technologies & Toolset:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Microsoft Entra ID</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Privileged Identity Management (PIM)</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Conditional Access</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Multi-Factor Authentication (MFA)</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Microsoft 365 Admin Center</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Exchange Online & Mail Flow</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Message Trace & EOP</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Microsoft Intune</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Microsoft Graph PowerShell</span>
+              <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-700/60 text-xs text-slate-300">Microsoft Service Tree</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         4. PROJECTS & PRACTICAL LABS PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-projects" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">Hands-on Practical Labs & Engineering Projects</h1>
+          <p class="text-slate-400 text-sm mt-1">15 step-by-step enterprise labs covering Azure Compute, Storage, Networking, IAM, Monitoring, and Automation.</p>
+        </div>
+        <span class="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold">15 Labs Available</span>
+      </div>
+
+      <!-- Labs Grid Container -->
+      <div id="labsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         5. TECHNICAL SKILLS PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-skills" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">Complete Technical Skills Library</h1>
+          <p class="text-slate-400 text-sm mt-1">Organized across 7 core domains: Categories A through G with 85 verified cloud competencies.</p>
+        </div>
+        <span class="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-semibold">85 Technical Skills</span>
+      </div>
+
+      <!-- Skills Categories Grid -->
+      <div id="skillsCategoriesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         6. LEARNING HUB
+         -------------------------------------------------------------------- -->
+    <section id="page-learning" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">Azure Technical Knowledge Platform</h1>
+          <p class="text-slate-400 text-sm mt-1">Comprehensive multi-part learning modules covering What, Why, Architecture, Real-World Scenarios, and Interview Tips.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.App.openSearchModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-300 hover:text-white flex items-center gap-1.5">
+            <i data-lucide="search" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>Search Topics</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modules List -->
+      <div id="learningModulesList" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         7. TROUBLESHOOTING KNOWLEDGE BASE
+         -------------------------------------------------------------------- -->
+    <section id="page-troubleshooting" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">Production Troubleshooting Knowledge Base</h1>
+          <p class="text-slate-400 text-sm mt-1">Field-tested enterprise runbooks with symptoms, triage commands, portal navigation, and root cause resolution.</p>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 pb-2">
+        <button onclick="window.App.filterTroubleshootingByCategory('All')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition" data-category="All">All Categories</button>
+        <button onclick="window.App.filterTroubleshootingByCategory('Azure VM')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Azure VM">Azure VM</button>
+        <button onclick="window.App.filterTroubleshootingByCategory('Azure Networking')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Azure Networking">Azure Networking</button>
+        <button onclick="window.App.filterTroubleshootingByCategory('Azure Storage')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Azure Storage">Azure Storage</button>
+        <button onclick="window.App.filterTroubleshootingByCategory('Identity & Access Management')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Identity & Access Management">Entra ID (IAM)</button>
+        <button onclick="window.App.filterTroubleshootingByCategory('Microsoft 365')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Microsoft 365">Microsoft 365</button>
+        <button onclick="window.App.filterTroubleshootingByCategory('ITSM Operations')" class="tb-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="ITSM Operations">ITSM & Bridge</button>
+      </div>
+
+      <!-- Troubleshooting Cards Container -->
+      <div id="troubleshootingContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         8. COMMAND REFERENCE LIBRARY
+         -------------------------------------------------------------------- -->
+    <section id="page-commands" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">Searchable Cloud Command Reference Library</h1>
+          <p class="text-slate-400 text-sm mt-1">Verified syntax, purpose, examples, and safety ratings for Azure CLI, PowerShell, Graph, and KQL.</p>
+        </div>
+        <!-- Command Search Input -->
+        <div class="relative w-full sm:w-72">
+          <input type="text" oninput="window.App.setCommandSearchQuery(this.value)" placeholder="Search commands, syntax..." class="w-full px-3.5 py-2 pl-9 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+          <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-2.5"></i>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 pb-2">
+        <button onclick="window.App.filterCommandsByCategory('All')" class="cmd-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition" data-category="All">All Commands</button>
+        <button onclick="window.App.filterCommandsByCategory('Azure CLI')" class="cmd-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Azure CLI">Azure CLI (az)</button>
+        <button onclick="window.App.filterCommandsByCategory('Azure PowerShell')" class="cmd-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Azure PowerShell">Azure PowerShell (Az)</button>
+        <button onclick="window.App.filterCommandsByCategory('Microsoft Graph')" class="cmd-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Microsoft Graph">Microsoft Graph</button>
+        <button onclick="window.App.filterCommandsByCategory('Exchange Online')" class="cmd-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="Exchange Online">Exchange Online</button>
+        <button onclick="window.App.filterCommandsByCategory('KQL')" class="cmd-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:text-white transition" data-category="KQL">KQL Queries</button>
+      </div>
+
+      <!-- Commands Grid -->
+      <div id="commandsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         9. CERTIFICATIONS PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-certifications" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6">
+        <h1 class="text-3xl font-extrabold text-white">Verified Microsoft Cloud Certifications</h1>
+        <p class="text-slate-400 text-sm mt-1">Credentials earned and verified by Microsoft for cloud administration, foundations, and artificial intelligence.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- AZ-104 -->
+        <div class="azure-glass rounded-2xl p-6 border border-blue-500/30 space-y-4 relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-2">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">AZ-104 • Verified</span>
+          <h2 class="text-xl font-bold text-white">Microsoft Certified: Azure Administrator Associate</h2>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Demonstrates subject matter expertise in implementing, managing, and monitoring an organization's Microsoft Azure environment, including virtual networks, storage, compute, identity, security, and governance.
+          </p>
+          <div class="pt-2 border-t border-slate-800 space-y-1.5 text-xs text-slate-400">
+            <strong class="text-slate-200 block text-xs">Core Skills Measured:</strong>
+            <div>• Manage Azure identities and governance (20–25%)</div>
+            <div>• Implement and manage storage (15–20%)</div>
+            <div>• Deploy and manage Azure compute resources (20–25%)</div>
+            <div>• Configure and manage virtual networking (15–20%)</div>
+            <div>• Monitor and maintain Azure resources (10–15%)</div>
+          </div>
+        </div>
+
+        <!-- AZ-900 -->
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-2">
+            <i data-lucide="cloud" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">AZ-900 • Verified</span>
+          <h2 class="text-xl font-bold text-white">Microsoft Certified: Azure Fundamentals</h2>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Validates foundational knowledge of cloud services and how those services are provided with Microsoft Azure, covering security, compliance, privacy, and core pricing models.
+          </p>
+          <div class="pt-2 border-t border-slate-800 space-y-1.5 text-xs text-slate-400">
+            <strong class="text-slate-200 block text-xs">Core Skills Measured:</strong>
+            <div>• Describe cloud concepts (25–30%)</div>
+            <div>• Describe Azure architecture and services (35–40%)</div>
+            <div>• Describe Azure management and governance (30–35%)</div>
+          </div>
+        </div>
+
+        <!-- AI-900 -->
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-2">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">AI-900 • Verified</span>
+          <h2 class="text-xl font-bold text-white">Microsoft Certified: Azure AI Fundamentals</h2>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Validates foundational knowledge of machine learning (ML) and artificial intelligence (AI) concepts and related Microsoft Azure services.
+          </p>
+          <div class="pt-2 border-t border-slate-800 space-y-1.5 text-xs text-slate-400">
+            <strong class="text-slate-200 block text-xs">Core Skills Measured:</strong>
+            <div>• Describe AI workloads and considerations (15–20%)</div>
+            <div>• Describe fundamental principles of ML on Azure (20–25%)</div>
+            <div>• Describe features of computer vision workloads on Azure (15–20%)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         10. INTERVIEW PREPARATION & QUIZ PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-interview" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 hidden">
+      <div class="border-b border-slate-800 pb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">Dedicated Interview Preparation & Assessment</h1>
+          <p class="text-slate-400 text-sm mt-1">Dual-answer interview repository (Quick Summary + Senior Operations Depth) and an interactive 10-question quiz.</p>
+        </div>
+        <button onclick="window.App.resetQuiz()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-300 hover:text-white flex items-center gap-1.5">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Reset Quiz</span>
+        </button>
+      </div>
+
+      <!-- Interactive Quiz Section -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i data-lucide="check-square" class="w-5 h-5 text-emerald-400"></i>
+          <span>Interactive Technical Assessment (10 Questions)</span>
+        </h2>
+        <div id="quizContainer" class="space-y-4"></div>
+      </div>
+
+      <!-- Interview Questions List -->
+      <div class="space-y-4 pt-6 border-t border-slate-800">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-blue-400"></i>
+          <span>Senior Cloud Operations Technical Scenarios & Answers</span>
+        </h2>
+        <div id="interviewQuestionsList" class="space-y-4"></div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         11. LEARNING DASHBOARD
+         -------------------------------------------------------------------- -->
+    <section id="page-dashboard" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6">
+        <h1 class="text-3xl font-extrabold text-white">Personal Learning Dashboard & Tracker</h1>
+        <p class="text-slate-400 text-sm mt-1">Track completed skills, bookmarked runbooks, and self-study progress persistently stored in your browser.</p>
+      </div>
+
+      <!-- Metrics Overview -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div id="dashboardTotal" class="text-3xl font-extrabold text-white mb-1">85</div>
+          <p class="text-xs uppercase tracking-wider text-slate-400">Total Skills Available</p>
+        </div>
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div id="dashboardCompleted" class="text-3xl font-extrabold text-emerald-400 mb-1">0</div>
+          <p class="text-xs uppercase tracking-wider text-slate-400">Completed Topics</p>
+        </div>
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div id="dashboardPending" class="text-3xl font-extrabold text-amber-400 mb-1">85</div>
+          <p class="text-xs uppercase tracking-wider text-slate-400">Topics Pending</p>
+        </div>
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 text-center">
+          <div id="dashboardPercent" class="text-3xl font-extrabold text-cyan-400 mb-1">0%</div>
+          <p class="text-xs uppercase tracking-wider text-slate-400">Completion Rate</p>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-300">
+          <span>Overall Platform Progress</span>
+          <span class="text-blue-400 font-mono">Synced with local storage</span>
+        </div>
+        <div class="w-full h-3 rounded-full bg-slate-900 border border-slate-800 overflow-hidden">
+          <div id="dashboardProgressBar" class="h-full bg-gradient-to-r from-blue-600 to-cyan-400 transition-all duration-500" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Bookmarks & Recents -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="bookmark" class="w-4 h-4 text-yellow-400"></i>
+            <span>Bookmarked Topics</span>
+          </h3>
+          <ul id="dashboardBookmarksList" class="space-y-1"></ul>
+        </div>
+
+        <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>Recently Completed</span>
+          </h3>
+          <ul id="dashboardRecentList" class="space-y-1"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         12. RESUME & RECRUITER PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-resume" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <!-- Actions Bar (No Print) -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800 no-print">
+        <div>
+          <h1 class="text-3xl font-extrabold text-white">ATS-Friendly Recruiter Resume</h1>
+          <p class="text-slate-400 text-sm mt-1">Verified enterprise employment, certifications, and technical profile.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="printResumeBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-md transition flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print / Save as PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Resume Paper Card -->
+      <div class="resume-card azure-glass rounded-2xl p-8 sm:p-12 border border-slate-800 space-y-8">
+        
+        <!-- Header -->
+        <div class="text-center space-y-2 border-b border-slate-800 pb-6">
+          <h2 class="text-3xl font-extrabold text-white tracking-tight">ISSAC SODARI</h2>
+          <p class="text-sm font-semibold text-blue-400">Azure Cloud Administrator | Azure Cloud Operations | Microsoft 365 & Entra ID (IAM) | Exchange Online</p>
+          <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400 pt-1 font-mono">
+            <span>Hyderabad, Telangana, India</span>
+            <span>•</span>
+            <a href="mailto:issacsodari8@gmail.com" class="text-blue-400 hover:underline">issacsodari8@gmail.com</a>
+            <span>•</span>
+            <span>+91-9440123070</span>
+            <span>•</span>
+            <a href="https://linkedin.com/in/issacsodari" target="_blank" class="text-blue-400 hover:underline">linkedin.com/in/issacsodari</a>
+          </div>
+        </div>
+
+        <!-- Recruiter Quick Summary -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-blue-400 border-b border-slate-800/80 pb-1">Professional Summary</h3>
+          <p class="text-xs text-slate-300 leading-relaxed text-justify">
+            Microsoft Certified Azure Administrator (AZ-104) with 4 years 8 months of hands-on experience at Tata Consultancy Services, supporting Microsoft's enterprise cloud and a business-critical payroll application in a 24x7, SLA-driven production environment. Delivers Azure infrastructure operations, monitoring, and production support, and administers Microsoft Entra ID (IAM), Microsoft 365, and Exchange Online. Applies ITIL service management in Microsoft Dynamics 365 and automates routine work with PowerShell and Azure CLI.
+          </p>
+        </div>
+
+        <!-- Employment Availability Card -->
+        <div class="bg-blue-950/20 p-4 rounded-xl border border-blue-800/40 text-xs text-slate-300 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div><span class="text-slate-400 block">Status:</span><strong class="text-emerald-400 font-semibold">Immediate Joining</strong></div>
+          <div><span class="text-slate-400 block">Notice Period:</span><strong class="text-white">0 Days</strong></div>
+          <div><span class="text-slate-400 block">Current CTC:</span><strong class="text-white">INR 4,37,000</strong></div>
+          <div><span class="text-slate-400 block">Expected CTC:</span><strong class="text-blue-400">Negotiable</strong></div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-blue-400 border-b border-slate-800/80 pb-1">Technical Skills</h3>
+          <ul class="text-xs text-slate-300 space-y-1.5">
+            <li><strong>Cloud Platform:</strong> Microsoft Azure (IaaS and PaaS)</li>
+            <li><strong>Azure Infrastructure:</strong> Virtual Machines, Storage Accounts, VNets, NSGs, VNet Peering, VPN Gateway, Azure DNS, Private Endpoints, Resource Groups, Azure Backup, Azure Site Recovery, Azure Update Manager</li>
+            <li><strong>Monitoring and Logging:</strong> Azure Monitor, Log Analytics (KQL), Application Insights, Service Health, Resource Health, VM Insights, Network Watcher, Alerts and Action Groups</li>
+            <li><strong>Application Support:</strong> Azure Data Factory, Azure WebJobs, Azure SQL Database, S360</li>
+            <li><strong>Identity & Access Management:</strong> Microsoft Entra ID, RBAC, MFA, Conditional Access, SSO, PIM, App Registrations, Access Reviews, Entra ID Protection, Microsoft Defender</li>
+            <li><strong>Microsoft 365 & Messaging:</strong> Microsoft 365 Admin Center, Exchange Online, Mailboxes, Distribution Groups, Mail Flow Rules, Message Trace, EOP, Teams, OneDrive</li>
+            <li><strong>ITIL & Service Management:</strong> Microsoft Dynamics 365, Service Tree, Incident, Problem, Change, and Major Incident Management, RCA, SLA Monitoring</li>
+            <li><strong>Scripting & Automation:</strong> PowerShell (Az, Microsoft Graph, Exchange Online), Azure CLI, Bicep</li>
+          </ul>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="space-y-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-blue-400 border-b border-slate-800/80 pb-1">Professional Experience</h3>
+          
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs font-bold text-white">
+              <span>IT Analyst – Microsoft Cloud Administrator</span>
+              <span>Nov 2021 – Jul 2026</span>
+            </div>
+            <div class="text-xs text-blue-400 font-medium">Tata Consultancy Services (TCS), Hyderabad, India | Client: Microsoft</div>
+            <p class="text-xs text-slate-400">Supported Microsoft's enterprise cloud across two engagements in a 24x7 rotational on-call model.</p>
+          </div>
+
+          <!-- Project 1 -->
+          <div class="space-y-1.5 pl-3 border-l-2 border-slate-800 text-xs text-slate-300">
+            <div class="font-bold text-white">PROJECT 1 – MICROSOFT PAYROLL APPLICATION & AZURE INFRASTRUCTURE OPERATIONS</div>
+            <div class="text-slate-400">Role: Cloud Operations & Automation Specialist | Client: Microsoft | Nov 2021 – Oct 2024</div>
+            <ul class="list-disc list-inside space-y-1 text-slate-300">
+              <li>Administered Azure VMs: health checks, start/stop/restart operations, and performance/connectivity troubleshooting. Maintained Storage Accounts, Blob Storage, VNets, subnets, NSG rules, VNet peering, and Azure DNS.</li>
+              <li>Configured Private Endpoints and Private DNS zones to resolve Azure SQL Database connectivity issues.</li>
+              <li>Deployed resources from Bicep templates via Azure CLI and PowerShell; tracked VM patch compliance in Azure Update Manager.</li>
+              <li>Monitored Azure Backup jobs, tested restores, and executed Azure Site Recovery DR drills to enforce RTO and RPO targets.</li>
+              <li>Investigated alerts from Azure Monitor, VM Insights, Service Health, and Action Groups; queried Log Analytics with KQL.</li>
+              <li>Handled Sev 1 and Sev 2 payroll batch incidents in Dynamics 365, reviewing ADF pipeline runs, WebJobs, and App Insights exceptions.</li>
+              <li>Scripted daily health checks of VMs, backup jobs, and replication with PowerShell (Get-AzVM -Status, Get-AzRecoveryServicesBackupJob, Get-AzMetric).</li>
+            </ul>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="space-y-1.5 pl-3 border-l-2 border-slate-800 text-xs text-slate-300">
+            <div class="font-bold text-white">PROJECT 2 – AZURE CLOUD ADMINISTRATION, IAM & MICROSOFT 365 ADMINISTRATION</div>
+            <div class="text-slate-400">Role: Global Azure Cloud Administrator – L2 | Client: Microsoft (MCAPS Trust Protection Systems) | Nov 2024 – Jul 2026</div>
+            <ul class="list-disc list-inside space-y-1 text-slate-300">
+              <li>Provisioned and deprovisioned Entra ID users, groups, and B2B guest accounts through Joiner, Mover, and Leaver (JML) processes.</li>
+              <li>Assigned Entra ID admin roles and Azure RBAC on least-privilege principles; governed privileged activations with PIM and Access Reviews.</li>
+              <li>Reset MFA methods and diagnosed Conditional Access, SSO, and App Registration issues using sign-in logs and the What If tool.</li>
+              <li>Reviewed risky users in Entra ID Protection and Defender alerts; revoked sessions and initiated credential resets with SecOps.</li>
+              <li>Managed Exchange Online mailboxes (User, Shared, Room), distribution groups, Full Access/Send As permissions, and Message Trace diagnostics.</li>
+              <li>Automated bulk onboarding, offboarding, and mailbox permission audits via Microsoft Graph PowerShell (Get-MgUser, Get-MgUserLicenseDetail).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-blue-400 border-b border-slate-800/80 pb-1">Certifications</h3>
+          <ul class="text-xs text-slate-300 list-disc list-inside space-y-1">
+            <li>Microsoft Certified: Azure Administrator Associate (AZ-104)</li>
+            <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
+            <li>Microsoft Certified: Azure AI Fundamentals (AI-900)</li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-blue-400 border-b border-slate-800/80 pb-1">Education</h3>
+          <div class="text-xs text-slate-300">
+            <strong>B.Tech in Electronics and Telecommunication Engineering</strong> — JNTUH College of Engineering Jagtial
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         13. CONTACT PAGE
+         -------------------------------------------------------------------- -->
+    <section id="page-contact" class="page-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 hidden">
+      <div class="border-b border-slate-800 pb-6">
+        <h1 class="text-3xl font-extrabold text-white">Get in Touch</h1>
+        <p class="text-slate-400 text-sm mt-1">Available for immediate hiring across Azure Cloud Administration and Cloud Operations roles.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Contact Form -->
+        <div class="lg:col-span-2 azure-glass rounded-2xl p-8 border border-slate-800 space-y-6">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+            <span>Send a Direct Message</span>
+          </h2>
+
+          <div id="contactFeedback" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs">
+            ✓ Message client opened successfully! If your mail client did not open automatically, please reach out directly at <strong>issacsodari8@gmail.com</strong>.
+          </div>
+
+          <form id="contactForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contactName" class="block text-xs font-semibold text-slate-300 mb-1">Full Name *</label>
+                <input type="text" id="contactName" required placeholder="John Doe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+              </div>
+              <div>
+                <label for="contactEmail" class="block text-xs font-semibold text-slate-300 mb-1">Email Address *</label>
+                <input type="email" id="contactEmail" required placeholder="john@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+              </div>
+            </div>
+
+            <div>
+              <label for="contactSubject" class="block text-xs font-semibold text-slate-300 mb-1">Subject *</label>
+              <input type="text" id="contactSubject" required placeholder="Job Opportunity: Azure Cloud Administrator" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+            </div>
+
+            <div>
+              <label for="contactMessage" class="block text-xs font-semibold text-slate-300 mb-1">Message *</label>
+              <textarea id="contactMessage" rows="5" required placeholder="Hi Issac, we would like to interview you for an Azure Cloud Administrator position..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs shadow-lg shadow-blue-500/20 transition flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="space-y-4">
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <span class="text-xs font-semibold text-blue-400 block uppercase tracking-wider">Direct Email</span>
+            <a href="mailto:issacsodari8@gmail.com" class="text-sm font-bold text-white hover:text-blue-400 block">issacsodari8@gmail.com</a>
+            <p class="text-xs text-slate-400">Response within 2-4 hours</p>
+          </div>
+
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <span class="text-xs font-semibold text-cyan-400 block uppercase tracking-wider">Phone / WhatsApp</span>
+            <a href="tel:+919440123070" class="text-sm font-bold text-white hover:text-cyan-400 block">+91-9440123070</a>
+            <p class="text-xs text-slate-400">Monday – Saturday (09:00 - 19:00 IST)</p>
+          </div>
+
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <span class="text-xs font-semibold text-emerald-400 block uppercase tracking-wider">Location</span>
+            <span class="text-sm font-bold text-white block">Hyderabad, Telangana, India</span>
+            <p class="text-xs text-slate-400">Open to On-site, Hybrid & Remote Roles</p>
+          </div>
+
+          <div class="azure-glass rounded-2xl p-6 border border-slate-800 space-y-3">
+            <span class="text-xs font-semibold text-purple-400 block uppercase tracking-wider">Professional Profiles</span>
+            <div class="flex items-center gap-3 pt-1">
+              <a href="https://linkedin.com/in/issacsodari" target="_blank" rel="noopener" class="p-2.5 rounded-lg bg-slate-900 text-blue-400 hover:bg-slate-800 transition" title="LinkedIn">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </a>
+              <a href="https://github.com/issacsodari" target="_blank" rel="noopener" class="p-2.5 rounded-lg bg-slate-900 text-slate-200 hover:bg-slate-800 transition" title="GitHub">
+                <i data-lucide="github" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       GLOBAL SEARCH MODAL (Ctrl+K)
+       ======================================================================== -->
+  <div id="searchModal" class="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 modal-overlay hidden">
+    <div class="azure-glass max-w-2xl w-full rounded-2xl border border-slate-700 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div class="p-4 border-b border-slate-800 flex items-center gap-3">
+        <i data-lucide="search" class="w-5 h-5 text-blue-400"></i>
+        <input type="text" id="searchInput" placeholder="Search skills, learning modules, troubleshooting runbooks, labs, commands..." class="w-full bg-transparent text-sm text-white placeholder-slate-500 focus:outline-none">
+        <button id="closeSearchBtn" class="text-xs text-slate-400 hover:text-white p-1">✕</button>
+      </div>
+      <div id="searchResults" class="p-4 max-h-[60vh] overflow-y-auto space-y-2"></div>
+      <div class="p-3 bg-slate-950/80 border-t border-slate-800 text-[11px] text-slate-500 flex justify-between">
+        <span>Use navigation tabs or search to find topics</span>
+        <span>ESC to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       DETAIL MODAL (Deep-Dive Modules, Runbooks, Labs)
+       ======================================================================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay hidden">
+    <div class="azure-glass max-w-3xl w-full max-h-[85vh] rounded-2xl border border-slate-700 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <h3 id="detailModalTitle" class="text-lg font-bold text-white">Detail View</h3>
+        <button id="closeDetailBtn" class="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">✕</button>
+      </div>
+      <div id="detailModalBody" class="p-6 overflow-y-auto flex-grow space-y-4"></div>
+      <div id="detailModalActions" class="p-4 bg-slate-950/80 border-t border-slate-800 flex items-center justify-end gap-3"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 py-8 no-print mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+      <div>
+        <p>© 2026 <strong>Issac Sodari</strong>. Built with Microsoft Azure Cloud Architecture Principles.</p>
+        <p class="text-slate-500 mt-0.5">Tata Consultancy Services (TCS) • Client: Microsoft • 4 Years 8 Months Experience</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#home" data-tab="home" class="hover:text-white transition">Home</a>
+        <a href="#learning" data-tab="learning" class="hover:text-white transition">Learning Hub</a>
+        <a href="#troubleshooting" data-tab="troubleshooting" class="hover:text-white transition">Troubleshooting</a>
+        <a href="#resume" data-tab="resume" class="hover:text-white transition">Resume</a>
+        <a href="#contact" data-tab="contact" class="hover:text-white transition">Contact</a>
+        <a href="https://github.com/issacsodari/portfolio" target="_blank" rel="noopener" class="text-blue-400 hover:underline">GitHub Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="assets/js/data/profile-data.js"></script>
+  <script src="assets/js/data/skills-data.js"></script>
+  <script src="assets/js/data/troubleshooting-data.js"></script>
+  <script src="assets/js/data/commands-data.js"></script>
+  <script src="assets/js/data/interview-data.js"></script>
+  <script src="assets/js/data/labs-data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

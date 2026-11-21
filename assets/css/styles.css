@@ -1,0 +1,237 @@
+/* ============================================================================
+   AZURE CLOUD ADMINISTRATOR & TECHNICAL LEARNING PLATFORM
+   Custom Design System & Theme Styles
+   Author: Issac Sodari
+   ============================================================================ */
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
+
+  /* Azure Dark Theme (Default) */
+  --bg-primary: #0a0f1d;
+  --bg-secondary: #0f172a;
+  --bg-card: #141e33;
+  --bg-card-hover: #1a2744;
+  --bg-input: #111a2e;
+  --border-color: #1e293b;
+  --border-focus: #0078d4;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --azure-blue: #0078d4;
+  --azure-blue-light: #50e6ff;
+  --azure-blue-dark: #005a9e;
+  --azure-accent: #2563eb;
+  --azure-glow: rgba(0, 120, 212, 0.25);
+
+  --badge-green: #10b981;
+  --badge-yellow: #f59e0b;
+  --badge-red: #ef4444;
+  --badge-purple: #8b5cf6;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #f8fafc;
+  --border-color: #e2e8f0;
+  --border-focus: #0078d4;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --azure-blue: #0078d4;
+  --azure-blue-light: #0284c7;
+  --azure-blue-dark: #004578;
+  --azure-accent: #1d4ed8;
+  --azure-glow: rgba(0, 120, 212, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--azure-blue);
+}
+
+/* Code and Typography */
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Glassmorphism Cards */
+.azure-glass {
+  background: rgba(20, 30, 51, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .azure-glass {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Azure Gradient Accents */
+.azure-gradient-text {
+  background: linear-gradient(135deg, #50e6ff 0%, #0078d4 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .azure-gradient-text {
+  background: linear-gradient(135deg, #0078d4 0%, #0284c7 50%, #1e40af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.azure-gradient-bg {
+  background: linear-gradient(135deg, #0078d4 0%, #2563eb 100%);
+}
+
+.azure-gradient-border {
+  position: relative;
+  border-radius: 0.75rem;
+}
+.azure-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 0.8rem;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(80, 230, 255, 0.4), rgba(0, 120, 212, 0.1), rgba(37, 99, 235, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 120, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(80, 230, 255, 0.4);
+  }
+}
+
+.glow-azure {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Interactive Card Transitions */
+.interactive-card {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 120, 212, 0.3);
+}
+
+[data-theme="light"] .interactive-card:hover {
+  box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 120, 212, 0.3);
+}
+
+/* Tab Active States */
+.nav-tab.active {
+  color: var(--azure-blue-light);
+  border-bottom: 2px solid var(--azure-blue);
+  background: rgba(0, 120, 212, 0.08);
+}
+
+[data-theme="light"] .nav-tab.active {
+  color: var(--azure-blue);
+  border-bottom: 2px solid var(--azure-blue);
+  background: rgba(0, 120, 212, 0.08);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  background: rgba(10, 15, 29, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Copy Button Tooltip */
+.copy-tooltip {
+  position: relative;
+}
+.copy-tooltip::after {
+  content: 'Copied!';
+  position: absolute;
+  top: -28px;
+  right: 0;
+  background: #10b981;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.copy-tooltip.copied::after {
+  opacity: 1;
+}
+
+/* Print Styles for ATS Resume */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+  .no-print, header, nav, footer, #searchModal, #detailModal, .tab-bar, .theme-toggle, .btn-action {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  #page-resume {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .resume-card {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  a {
+    color: #000000 !important;
+    text-decoration: underline;
+  }
+}
